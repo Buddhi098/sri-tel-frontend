@@ -32,10 +32,10 @@ const ShowSidebar = (props) => {
 		{id: 3, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Logout', link: 'logout', index: '3'},
 	];
 	const admin = [
-		// {id: 1, icon: <HomeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Home', link: 'home', index: '1'},
-		{id: 1, icon: <InventoryIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Packages', link: 'home', index: '1'},
-		{id: 2, icon: <PeopleIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Staff', link: 'staff', index: '2'},
-		{id: 3, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Logout', link: 'logout', index: '3'},
+		{id: 1, icon: <HomeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Home', link: 'home', index: '1'},
+		{id: 2, icon: <InventoryIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Packages', link: 'packs', index: '2'},
+		{id: 3, icon: <PeopleIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Staff', link: 'staff', index: '3'},
+		{id: 4, icon: <LogoutIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Logout', link: 'logout', index: '4'},
 	];
 	const staff = [
 		// {id: 1, icon: <HomeIcon sx={{fontSize: 40, fill: '#6F767F'}} />, label: 'Home', link: 'home', index: '1'},

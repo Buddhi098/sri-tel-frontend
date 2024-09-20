@@ -63,6 +63,10 @@ export default function AdminPackages() {
                 flexDirection: "column",
             }}
         >
+            <header className='admin-header'>
+                <h1>Sri Tel Ltd (STL) - Customer Registration</h1>
+                <p>Register new customers efficiently with our state-of-the-art system.</p>
+            </header>
             <div
                 className="adminPackagesTopRow"
                 style={{
@@ -77,7 +81,7 @@ export default function AdminPackages() {
                     className="adminPackageAddButton"
                     onClick={() => setIsModalVisible(!isModalVisible)}
                 >
-                    Add
+                    Add a customer
                 </div>
             </div>
             <Modal

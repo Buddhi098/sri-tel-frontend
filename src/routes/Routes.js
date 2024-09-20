@@ -6,9 +6,9 @@ export const customerRoutes = [
 	{id: 3, path: '/support', element: <UserViews.CustomerSupport />},
 ];
 export const adminRoutes = [
-	// {id: 1, path: '/home', element: <UserViews.AdminDashboard />},
-	{id: 1, path: '/home', element: <UserViews.AdminPackages />},
-	{id: 2, path: '/staff', element: <UserViews.AdminStaff />},
+	{id: 1, path: '/home', element: <UserViews.AdminDashboard />},
+	{id: 2, path: '/packs', element: <UserViews.AdminPackages />},
+	{id: 3, path: '/staff', element: <UserViews.AdminStaff />},
 ];
 export const staffRoutes = [
 	{id: 1, path: '/home', element: <UserViews.StaffCustomers />},

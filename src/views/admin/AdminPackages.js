@@ -85,6 +85,10 @@ export default function AdminPackages() {
       className="adminPackages"
       style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}
     >
+        <header className='admin-header'>
+          <h1>Sri Tel Ltd (STL) - Package Management</h1>
+          <p>Manage your packages efficiently with our state-of-the-art system.</p>
+        </header>
       <div
         className="adminPackagesTopRow"
         style={{
@@ -96,7 +100,7 @@ export default function AdminPackages() {
         }}
       >
         <div className="adminPackageAddButton" onClick={() => setIsModalVisible(true)}>
-          Add
+          Add a package
         </div>
       </div>
       
