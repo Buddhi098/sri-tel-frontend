@@ -25,7 +25,7 @@ function App() {
 
 
 // temp variable for only debug
-  var user = "Staff"
+  var user = "Customer"
   
   return (
     <div className="appContainer">

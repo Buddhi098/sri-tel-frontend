@@ -1,0 +1,145 @@
+/* customerpackages.css */
+
+/* Global Styling for page layout */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Main Container */
+.packageContainer {
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Radio Button Styles */
+.radioButtonRow {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.RadioButton {
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+}
+
+.RadioButton:hover {
+    background-color: #6a2dc3;
+}
+
+.RadioButton:active {
+    transform: scale(0.98);
+}
+
+/* Table Styling */
+.adminPackagesBottomRow {
+    margin-top: 30px;
+    overflow-x: auto;
+}
+
+.admin-styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1em;
+    text-align: left;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.admin-styled-table thead tr {
+    background-color: #5E239D;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.admin-styled-table th, .admin-styled-table td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.admin-styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.admin-styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.admin-styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #5E239D;
+}
+
+.admin-styled-table tbody tr:hover {
+    background-color: #f2e7ff;
+    transition: all 0.3s ease;
+}
+
+/* Modal Styles */
+.processingtext {
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.rstext {
+    font-size: 22px;
+    font-weight: bold;
+    color: #5E239D;
+}
+
+.modal-container {
+    background-color: white;
+    width: 40vw;
+    height: 17vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .packageContainer {
+        padding: 15px;
+    }
+
+    .radioButtonRow {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .RadioButton {
+        margin: 10px 0;
+        width: 70%;
+    }
+
+    .admin-styled-table th, .admin-styled-table td {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .modal-container {
+        width: 80vw;
+        height: auto;
+    }
+}
