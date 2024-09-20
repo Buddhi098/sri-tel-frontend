@@ -61,13 +61,13 @@ export default function AdminPackages() {
   };
 
   // Fetch package details when the component mounts
-//   useEffect(() => {
-//     async function getPackageDetails() {
-//       const res = await Axios_packages.get(API_ENDPOINTS.GET_PACKAGE_URL);
-//       setDetails(res.data);
-//     }
-//     getPackageDetails();
-//   }, []);
+  // useEffect(() => {
+  //   // async function getPackageDetails() {
+  //   //   const res = await Axios_packages.get(API_ENDPOINTS.GET_PACKAGE_URL);
+  //   //   setDetails(res.data);
+  //   // }
+  //   // getPackageDetails();
+  // }, []);
 
   // Handle option change
   const setOption = (value) => {

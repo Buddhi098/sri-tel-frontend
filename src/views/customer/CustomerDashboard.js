@@ -23,22 +23,22 @@ export default function CustomerDashboard() {
 		},
 	];
 	useEffect(() => {
-		Axios_bill.post(API_ENDPOINTS.GET_BILL_DETAILS, {
-			user: userid,
-		}).then((response) => {
-			console.log(response);
-			// async function constuct(){
-			// 	if(userid){
-			// 		const newArr = response.data.map((item)=> item.user_id==userid);
-			// 		console.log(newArr)
-			// 	}
+		// Axios_bill.post(API_ENDPOINTS.GET_BILL_DETAILS, {
+		// 	user: userid,
+		// }).then((response) => {
+		// 	console.log(response);
+		// 	// async function constuct(){
+		// 	// 	if(userid){
+		// 	// 		const newArr = response.data.map((item)=> item.user_id==userid);
+		// 	// 		console.log(newArr)
+		// 	// 	}
 
-			// }
-			// constuct();
-			//console.log(response.data);
-			setPackages(response.data);
-			setAllPackages(response.data);
-		});
+		// 	// }
+		// 	// constuct();
+		// 	//console.log(response.data);
+		// 	setPackages(response.data);
+		// 	setAllPackages(response.data);
+		// });
 	}, [userid]);
 	const activate = () => {
 		console.log('Hello');
@@ -63,17 +63,17 @@ export default function CustomerDashboard() {
 		setIsModalVisible(!isModalVisible);
 	};
 	const addToBill = (id, price) => {
-		Axios_packages.post(API_ENDPOINTS.ACTIVATE_PACKAGE, {
-			user: userid,
-			id: id,
-		}).then((response_2) => {
-			Axios_bill.post(API_ENDPOINTS.ADD_TO_BILL, {
-				user: userid,
-				amount: price,
-			}).then((response) => {
-				console.log(response);
-			});
-		});
+		// Axios_packages.post(API_ENDPOINTS.ACTIVATE_PACKAGE, {
+		// 	user: userid,
+		// 	id: id,
+		// }).then((response_2) => {
+		// 	Axios_bill.post(API_ENDPOINTS.ADD_TO_BILL, {
+		// 		user: userid,
+		// 		amount: price,
+		// 	}).then((response) => {
+		// 		console.log(response);
+		// 	});
+		// });
 	};
 	const style = {
 		position: 'absolute',

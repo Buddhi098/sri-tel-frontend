@@ -11,7 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 function App() {
   const navigate = useNavigate();
   //localStorage.clear('type');
-//   var user = localStorage.getItem("type");
+  var user = localStorage.getItem("type");
   console.log(user);
   useEffect(() => {
     if (user) {

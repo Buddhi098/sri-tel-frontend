@@ -6,6 +6,56 @@ import {Axios_packages, Axios_bill} from '../../api/Axios';
 import * as API_ENDPOINTS from '../../api/ApiEndpoints';
 import StripeCard from '../../componets/StripeCard';
 import {useSelector} from 'react-redux';
+
+const dummyPackages = [
+	{
+	  package_id: 1,
+	  name: "Basic Package",
+	  description: "This package includes basic data and voice services.",
+	  data_limit: "5GB",
+	  voice_limit: "100 minutes",
+	  sms_limit: "50 SMS",
+	  price: "$10",
+	},
+	{
+	  package_id: 2,
+	  name: "Premium Package",
+	  description: "Premium package with more data and voice.",
+	  data_limit: "20GB",
+	  voice_limit: "500 minutes",
+	  sms_limit: "200 SMS",
+	  price: "$30",
+	},
+	{
+	  package_id: 3,
+	  name: "Unlimited Package",
+	  description: "Unlimited data, voice, and SMS.",
+	  data_limit: null,  // No data limit
+	  voice_limit: null,  // No voice limit
+	  sms_limit: null,  // No SMS limit
+	  price: "$50",
+	},
+	{
+	  package_id: 4,
+	  name: "Data Only Package",
+	  description: "Data-only package with no voice or SMS.",
+	  data_limit: "50GB",
+	  voice_limit: null,  // No voice services
+	  sms_limit: null,  // No SMS services
+	  price: "$20",
+	},
+	{
+	  package_id: 5,
+	  name: "Voice Only Package",
+	  description: "Voice-only package with no data or SMS.",
+	  data_limit: null,  // No data services
+	  voice_limit: "1000 minutes",
+	  sms_limit: null,  // No SMS services
+	  price: "$15",
+	}
+  ];
+
+  
 export default function CustomerPackages() {
 	const userid = useSelector((state) => state.UserReducer.userid);
 	const [isModalVisible, setIsModalVisible] = useState(false);
@@ -26,11 +76,13 @@ export default function CustomerPackages() {
 		},
 	];
 	useEffect(() => {
-		Axios_packages.post(API_ENDPOINTS.GET_ALL_PACKAGES).then((response) => {
-			console.log(response.data);
-			setPackages(response.data);
-			setAllPackages(response.data);
-		});
+		// Axios_packages.post(API_ENDPOINTS.GET_ALL_PACKAGES).then((response) => {
+		// 	console.log(response.data);
+		// 	setPackages(response.data);
+		// 	setAllPackages(response.data);
+		// });
+			setPackages(dummyPackages);
+			setAllPackages(dummyPackages);
 	}, []);
 	const activate = () => {
 		console.log('Hello');
@@ -55,17 +107,17 @@ export default function CustomerPackages() {
 		setIsModalVisible(!isModalVisible);
 	};
 	const addToBill = (id, price) => {
-		Axios_packages.post(API_ENDPOINTS.ACTIVATE_PACKAGE, {
-			user: userid,
-			id: id,
-		}).then((response_2) => {
-			Axios_bill.post(API_ENDPOINTS.ADD_TO_BILL, {
-				user: userid,
-				amount: price,
-			}).then((response) => {
-				console.log(response);
-			});
-		});
+		// Axios_packages.post(API_ENDPOINTS.ACTIVATE_PACKAGE, {
+		// 	user: userid,
+		// 	id: id,
+		// }).then((response_2) => {
+		// 	Axios_bill.post(API_ENDPOINTS.ADD_TO_BILL, {
+		// 		user: userid,
+		// 		amount: price,
+		// 	}).then((response) => {
+		// 		console.log(response);
+		// 	});
+		// });
 	};
 	const style = {
 		position: 'absolute',
