@@ -29,15 +29,15 @@ export default function AdminStaff() {
 		boxShadow: 24,
 	};
 	const handleSubmit = () => {
-		// Axios_user.post(API_ENDPOINTS.ADD_STAFF_URL, {
+		Axios_user.post(API_ENDPOINTS.ADD_STAFF_URL, {
 		
-		// 		name:name,
-		// 		email:email,
-		// 		contactNo:contactNo,
-		// 		type:type
+				name:name,
+				email:email,
+				contactNo:contactNo,
+				type:type
 				
 			
-		// });
+		});
 	};
 	const closeModal = () => {
 		setIsModalVisible(!setIsModalVisible);
@@ -45,16 +45,20 @@ export default function AdminStaff() {
 		setContactno('');
 	};
 	
-    // useEffect(()=>{
-    //     async function getStaffDetails(){
-	// 	    const res = await Axios_user.get(API_ENDPOINTS.GET_STAFF_URL);
-	// 		setDetails(res.data);
-	// 	};
-	// 	getStaffDetails();
-	// },[])
+    useEffect(()=>{
+        async function getStaffDetails(){
+		    // const res = await Axios_user.get(API_ENDPOINTS.GET_STAFF_URL);
+			// setDetails(res.data);
+		};
+		getStaffDetails();
+	},[])
 
 	return (
 		<div className='adminPackages' style={{width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
+			    <header className='admin-header'>
+					<h1>Sri Tel Ltd (STL) - Staff Management</h1>
+					<p>Manage your staff efficiently with our state-of-the-art system.</p>
+				</header>
 			<div
 				className='adminPackagesTopRow'
 				style={{
@@ -66,7 +70,7 @@ export default function AdminStaff() {
 				}}
 			>
 				<div className='adminPackageAddButton' onClick={() => setIsModalVisible(!isModalVisible)}>
-					Add
+					Add a member
 				</div>
 			</div>
 			<Modal onClose={closeModal} open={isModalVisible} aria-labelledby='modal-modal-title' aria-describedby='modal-modal-description'>
@@ -94,7 +98,7 @@ export default function AdminStaff() {
 						<div className='adminPackagerow'>
 							<input placeholder='Contact no*' className='adminPackageInput' type='text' onChange={(event) => setContactno(event.target.value)} value={contactNo} required></input>
 						</div>
-						<div className='adminPackageAddButton' style={{height: '10%', width: '40%', color: 'white'}} onClick={handleSubmit}>
+						<div className='adminPackageAddButton' style={{height: '8%', width: '20%', color: 'white'}} onClick={handleSubmit}>
 							Add
 						</div>
 					</div>

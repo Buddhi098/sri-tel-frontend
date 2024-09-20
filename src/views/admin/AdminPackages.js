@@ -85,6 +85,10 @@ export default function AdminPackages() {
       className="adminPackages"
       style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}
     >
+        <header className='admin-header'>
+          <h1>Sri Tel Ltd (STL) - Package Management</h1>
+          <p>Manage your packages efficiently with our state-of-the-art system.</p>
+        </header>
       <div
         className="adminPackagesTopRow"
         style={{
@@ -96,7 +100,7 @@ export default function AdminPackages() {
         }}
       >
         <div className="adminPackageAddButton" onClick={() => setIsModalVisible(true)}>
-          Add
+          Add a package
         </div>
       </div>
       
@@ -155,7 +159,7 @@ export default function AdminPackages() {
             </div>
 
             {/* Package Inputs */}
-            <div className="adminPackagerow" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '90%' }}>
+            <div className="adminPackagerow" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '92%' }}>
               <input
                 disabled={type === 'voice'}
                 placeholder="Data limit*"
@@ -181,7 +185,7 @@ export default function AdminPackages() {
                 value={smsLimit}
               />
             </div>
-            <div className="adminPackagerow" style={{ marginTop: '-8%' }}>
+            <div className="adminPackagerow" style={{ marginTop: '-3%' }}>
               <input
                 placeholder="Price*"
                 className="adminPackageInput"
@@ -192,7 +196,7 @@ export default function AdminPackages() {
               />
             </div>
 
-            <div className="adminPackageAddButton" style={{ color: 'white' }} onClick={handleSubmit}>
+            <div className="adminPackageAddButton" style={{height: '8%', width: '20%', color: 'white'}} onClick={handleSubmit}>
               Add
             </div>
           </div>

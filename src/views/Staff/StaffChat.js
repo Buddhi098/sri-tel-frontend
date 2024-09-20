@@ -34,7 +34,7 @@ export default function StaffChat() {
                   style={{
                       // marginRight: "10%",
                       marginLeft: "5%",
-                      width: "10%",
+                      width: "95%",
                       height: "60%",
                       fontSize: "24px",
                   }}
