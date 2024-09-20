@@ -159,7 +159,7 @@ export default function AdminPackages() {
             </div>
 
             {/* Package Inputs */}
-            <div className="adminPackagerow" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '90%' }}>
+            <div className="adminPackagerow" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', width: '92%' }}>
               <input
                 disabled={type === 'voice'}
                 placeholder="Data limit*"
@@ -185,7 +185,7 @@ export default function AdminPackages() {
                 value={smsLimit}
               />
             </div>
-            <div className="adminPackagerow" style={{ marginTop: '-8%' }}>
+            <div className="adminPackagerow" style={{ marginTop: '-3%' }}>
               <input
                 placeholder="Price*"
                 className="adminPackageInput"
@@ -196,7 +196,7 @@ export default function AdminPackages() {
               />
             </div>
 
-            <div className="adminPackageAddButton" style={{ color: 'white' }} onClick={handleSubmit}>
+            <div className="adminPackageAddButton" style={{height: '8%', width: '20%', color: 'white'}} onClick={handleSubmit}>
               Add
             </div>
           </div>

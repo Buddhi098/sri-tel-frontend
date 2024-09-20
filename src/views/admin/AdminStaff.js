@@ -98,7 +98,7 @@ export default function AdminStaff() {
 						<div className='adminPackagerow'>
 							<input placeholder='Contact no*' className='adminPackageInput' type='text' onChange={(event) => setContactno(event.target.value)} value={contactNo} required></input>
 						</div>
-						<div className='adminPackageAddButton' style={{height: '10%', width: '40%', color: 'white'}} onClick={handleSubmit}>
+						<div className='adminPackageAddButton' style={{height: '8%', width: '20%', color: 'white'}} onClick={handleSubmit}>
 							Add
 						</div>
 					</div>
