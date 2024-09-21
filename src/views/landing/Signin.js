@@ -88,7 +88,7 @@ export default function Signin() {
 						</div>
 					)}
 
-					<div style={{display: 'flex', flexDirection: 'row'}}>
+					<div style={{display: 'flex', flexDirection: 'row' , marginTop:"10px"}}>
 						<span className='notregisteredtext'>Not registered?</span>
 						<span className='signInText' style={{textDecoration: 'underline', color: 'white'}} onClick={() => navigate('/signup')}>
 							Sign up

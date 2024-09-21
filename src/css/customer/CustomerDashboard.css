@@ -1,145 +1,166 @@
 /* customerpackages.css */
 
-/* Global Styling for page layout */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-/* Main Container */
-.packageContainer {
+/* Main Container for the Dashboard */
+.dashboardContainer {
+    width: 97%;
     padding: 20px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Radio Button Styles */
-.radioButtonRow {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-}
-
-.RadioButton {
-    padding: 12px 25px;
-    font-size: 16px;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+  }
+  
+  /* Dashboard Titles */
+  .dashboardTitle {
+    font-size: 32px;
     font-weight: bold;
-    border-radius: 30px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .dashboardSubtitle {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+  }
+  
+  /* Current Bill Section */
+  .currentBillSection {
+    padding: 30px;
+    margin-bottom: 40px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sectionTitle {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+  }
+  
+  .billBreakdown {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .serviceItem {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .totalAmount {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 20px;
+  }
+  
+  .payButton {
+    align-self: flex-start;
+    padding: 10px 20px;
+    background-color: #5E239D;
     color: white;
-    cursor: pointer;
-    margin: 0 10px;
-    transition: all 0.3s ease;
-}
-
-.RadioButton:hover {
-    background-color: #6a2dc3;
-}
-
-.RadioButton:active {
-    transform: scale(0.98);
-}
-
-/* Table Styling */
-.adminPackagesBottomRow {
-    margin-top: 30px;
-    overflow-x: auto;
-}
-
-.admin-styled-table {
+    font-weight: bold;
+    border-radius: 4px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+  }
+  
+  .payButton:hover {
+    background-color: #4b1b78;
+  }
+  
+  /* Admin Packages - Payment History Table */
+  .adminPackagesBottomRow {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-styled-table {
     width: 100%;
     border-collapse: collapse;
     margin: 25px 0;
-    font-size: 1em;
-    text-align: left;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.admin-styled-table thead tr {
+    font-size: 16px;
+  }
+  
+  .admin-styled-table thead tr {
     background-color: #5E239D;
     color: white;
-    text-align: center;
-    font-weight: bold;
-}
-
-.admin-styled-table th, .admin-styled-table td {
+    text-align: left;
+  }
+  
+  .admin-styled-table th,
+  .admin-styled-table td {
     padding: 12px 15px;
-    text-align: center;
-}
-
-.admin-styled-table tbody tr {
+  }
+  
+  .admin-styled-table tbody tr {
     border-bottom: 1px solid #dddddd;
-}
-
-.admin-styled-table tbody tr:nth-of-type(even) {
+  }
+  
+  .admin-styled-table tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
-}
-
-.admin-styled-table tbody tr:last-of-type {
+  }
+  
+  .admin-styled-table tbody tr:last-of-type {
     border-bottom: 2px solid #5E239D;
-}
-
-.admin-styled-table tbody tr:hover {
-    background-color: #f2e7ff;
-    transition: all 0.3s ease;
-}
-
-/* Modal Styles */
-.processingtext {
-    font-size: 18px;
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.rstext {
-    font-size: 22px;
-    font-weight: bold;
-    color: #5E239D;
-}
-
-.modal-container {
-    background-color: white;
-    width: 40vw;
-    height: 17vw;
+  }
+  
+  .admin-styled-table tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  Modal CSS
+  .modal-container {
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .packageContainer {
-        padding: 15px;
-    }
-
-    .radioButtonRow {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .RadioButton {
-        margin: 10px 0;
-        width: 70%;
-    }
-
-    .admin-styled-table th, .admin-styled-table td {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    .modal-container {
-        width: 80vw;
-        height: auto;
-    }
-}
+    align-items: center;
+    width:"400vw";
+  }
+  
+  .processingtext {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .rstext {
+    font-size: 22px;
+    font-weight: bold;
+    color: #5E239D;
+  }
+  
+  /* RadioButton Row */
+  .radioButtonRow {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+  }
+  
+  .RadioButton {
+    padding: 10px 20px;
+    margin-right: 10px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .RadioButton:hover {
+    background-color: #4b1b78;
+  }
+  
