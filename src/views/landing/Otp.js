@@ -29,6 +29,7 @@ export default function Otp() {
 					ToastMessages.info('Redirecting to homepage');
 					setTimeout(function () {
 						localStorage.removeItem('otpmail');
+						localStorage.setItem("type" , "Customer")
 						navigate('/');
 					}, 3000);
 				} else if (response.data.message == 'Invalid OTP') {

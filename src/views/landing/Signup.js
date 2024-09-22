@@ -16,6 +16,8 @@ export default function Signin() {
 			ToastMessages.success(data.message);
 			ToastMessages.info('Redirecting to OTP verification');
 			localStorage.setItem('otpmail', email);
+			localStorage.setItem("user_id" , data.id)
+			console.log("User_id" + data.id)
 			setIsDisabled(true);
 			// resetFormData();
 			// setIsDisabled(true);

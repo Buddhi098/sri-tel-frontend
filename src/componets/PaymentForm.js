@@ -24,6 +24,8 @@ const CARD_OPTIONS = {
 };
 export default function PaymentForm(props) {
 	const userid = useSelector((state) => state.UserReducer.userid);
+	const userrid = localStorage.getItem("user_id");
+	console.log(userrid)
 	const amount = props.amount * 100;
 	const p_id = props.id;
 	console.log(userid)
@@ -39,15 +41,15 @@ export default function PaymentForm(props) {
 		if (!error) {
 			try {
 				const {id} = paymentMethod;
-				Axios_payments.post(API_ENDPOINTS.PAYMENT, {
+				Axios_packages.post(API_ENDPOINTS.STORE_PAYMENT, {
 					amount: amount,
-					id: id,
+					user_id: userrid
 				}).then((response) => {
 					console.log(response);
-					if (response.data == 'success') {
+					if (response.data.type == 'success') {
 						Axios_packages.post(API_ENDPOINTS.ACTIVATE_PACKAGE, {
-							user: userid,
-							id: p_id,
+							user_id: userrid,
+							package_id: p_id,
 						}).then((response_2) => {
 							console.log(response_2);
 						});

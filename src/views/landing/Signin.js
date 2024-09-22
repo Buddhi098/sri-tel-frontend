@@ -50,11 +50,13 @@ export default function Signin() {
 				console.log(response.data);
 				if (response.data.type == 'success') {
 
-					if (response.data.user) {
+					if (response.data.type) {
 						dispatch(SetUserAction(response.data.user));
 						dispatch(SetUserId(response.data.id));
-						localStorage.setItem("user_id", response.data.user_id)
-						navigate('/home');
+						localStorage.setItem("user_id", response.data.id)
+						console.log("User_id" + response.data.id)
+						localStorage.setItem("type" , response.data.role)
+						navigate('/');
 					} else {
 						showToast(response.data);
 					}
