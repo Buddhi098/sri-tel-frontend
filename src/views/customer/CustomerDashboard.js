@@ -141,13 +141,13 @@ export default function CustomerDashboard() {
 
         {/* Bill breakdown */}
         <div className="billBreakdown">
-          {bills.map((service, index) => (
-            <div key={index} className="serviceItem">
-              <span>{service.package_name}</span>
-              <span>{service.price}</span>
-              <span>{<Button onClick={(event)=> delete_package(event, service.package_id)}>remove</Button>}</span>
-            </div>
-          ))}
+          {(bills && bills.length > 0) ?
+            bills.map((service, index) => (
+              <div key={index} className="serviceItem">
+                <span>{service.package_name}</span>
+                <span>{service.price}</span>
+              </div>
+            )) : (<div style={{marginTop:"20px"}}>There Are No Package Added</div>)}
         </div>
 
         <Typography variant="h6" className="totalAmount">
@@ -202,7 +202,7 @@ export default function CustomerDashboard() {
             <div className="processingtext">
               Processing <span className="rstext">RS.{amount}</span>
             </div>
-            <StripeCard amount={amount} id={id} />
+            <StripeCard amount={amount} id={id} type={"total"}/>
           </div>
         </Box>
       </Modal>
