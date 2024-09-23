@@ -66,14 +66,14 @@ export default function CustomerDashboard() {
     getTotal();
   }, []);
 
-  const [history , setHistory] = useState([])
+  const [history, setHistory] = useState([]);
   useEffect(() => {
     const getTotal = async () => {
       const user_id = localStorage.getItem("user_id");
       const res = await Axios_user.post(API_ENDPOINTS.GET_PAYMENT_HISTORY, {
         user_id,
       });
-      
+
       setHistory(res.data.history);
     };
     getTotal();
@@ -119,12 +119,13 @@ export default function CustomerDashboard() {
 
         {/* Bill breakdown */}
         <div className="billBreakdown">
-          {bills.map((service, index) => (
-            <div key={index} className="serviceItem">
-              <span>{service.package_name}</span>
-              <span>{service.price}</span>
-            </div>
-          ))}
+          {(bills && bills.length > 0) ?
+            bills.map((service, index) => (
+              <div key={index} className="serviceItem">
+                <span>{service.package_name}</span>
+                <span>{service.price}</span>
+              </div>
+            )) : (<div style={{marginTop:"20px"}}>There Are No Package Added</div>)}
         </div>
 
         <Typography variant="h6" className="totalAmount">
@@ -159,7 +160,7 @@ export default function CustomerDashboard() {
           <tbody>
             {history.map((item, index) => (
               <tr key={index}>
-                <td>{index+1}</td>
+                <td>{index + 1}</td>
                 <td>{item.amount}</td>
                 <td>Paid</td>
               </tr>
