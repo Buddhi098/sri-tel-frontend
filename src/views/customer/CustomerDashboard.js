@@ -141,13 +141,13 @@ export default function CustomerDashboard() {
 
         {/* Bill breakdown */}
         <div className="billBreakdown">
-          {bills.map((service, index) => (
+          {(bills && bills.length>0) ? bills.map((service, index) => (
             <div key={index} className="serviceItem">
               <span>{service.package_name}</span>
               <span>{service.price}</span>
               <span>{<Button onClick={(event)=> delete_package(event, service.package_id)}>remove</Button>}</span>
             </div>
-          ))}
+          )) : (<div>There are no packages Added</div>)}
         </div>
 
         <Typography variant="h6" className="totalAmount">
