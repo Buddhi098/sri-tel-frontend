@@ -202,7 +202,7 @@ export default function CustomerDashboard() {
             <div className="processingtext">
               Processing <span className="rstext">RS.{amount}</span>
             </div>
-            <StripeCard amount={amount} id={id} />
+            <StripeCard amount={amount} id={id} type={"total"}/>
           </div>
         </Box>
       </Modal>

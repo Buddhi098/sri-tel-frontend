@@ -32,3 +32,4 @@ export const GET_TOTAL_PAID = '/api/getTotalPaid'
 
 export const GET_PAYMENT_HISTORY = '/api/paymentHistory'
 
+export const PAY_FOR_ALL_PACKAGES = '/api/payTotal'
