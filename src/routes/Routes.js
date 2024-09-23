@@ -8,10 +8,5 @@ export const customerRoutes = [
 export const adminRoutes = [
 	{id: 1, path: '/home', element: <UserViews.AdminDashboard />},
 	{id: 2, path: '/packs', element: <UserViews.AdminPackages />},
-	{id: 3, path: '/staff', element: <UserViews.AdminStaff />},
-];
-export const staffRoutes = [
-	{id: 1, path: '/home', element: <UserViews.StaffCustomers />},
-	// {id: 2, path: '/packages', element: <UserViews.AdminPackages />},
-	{id: 2, path: '/assist', element: <UserViews.StaffChat />},
+	{id: 3, path: '/assist', element: <UserViews.CustomerSupport />},
 ];

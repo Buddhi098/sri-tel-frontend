@@ -22,3 +22,10 @@ export const GET_AVAILABLE_PACKAGES = '/api/available-packages'
 export const STORE_PAYMENT = '/api/store-payment'
 
 export const ACTIVATE_PACKAGE = '/api/activate-package'
+
+export const GET_ALL_ADDED_BILLS = '/api/getAddedBillDetails'
+
+export const GET_TOTAL_PAID = '/api/getTotalPaid'
+
+export const GET_PAYMENT_HISTORY = '/api/paymentHistory'
+

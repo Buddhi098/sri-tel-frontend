@@ -6,6 +6,9 @@ import { Axios_packages, Axios_bill, Axios_user } from "../../api/Axios";
 import * as API_ENDPOINTS from "../../api/ApiEndpoints";
 import StripeCard from "../../componets/StripeCard";
 import { useSelector } from "react-redux";
+import { success } from "../../componets/ToastMessages";
+import * as ToastMessages from "../../componets/ToastMessages";
+import Toast from "../../componets/Toast";
 
 export default function CustomerPackages() {
   const userid = useSelector((state) => state.UserReducer.userid);
@@ -79,8 +82,26 @@ export default function CustomerPackages() {
     setIsModalVisible(!isModalVisible);
   };
 
-  const addToBill = (id, price) => {
-    // API integration code goes here
+  const addToBill = async (id, price) => {
+    const user_id = localStorage.getItem("user_id");
+    const response = {
+      user_id: user_id,
+      package_id: id,
+    };
+
+    const res = await Axios_user.post(API_ENDPOINTS.ADD_TO_BILL, response);
+    console.log(res);
+    if (res.data.type == "success") {
+      Axios_packages.post(API_ENDPOINTS.ACTIVATE_PACKAGE, {
+        user_id: user_id,
+        package_id: id,
+      }).then((response_2) => {
+        console.log(response_2);
+      });
+      ToastMessages.success("Successfully Added To The Bill");
+    } else {
+      ToastMessages.error("Package Already Added!");
+    }
   };
 
   const style = {
@@ -200,6 +221,7 @@ export default function CustomerPackages() {
           </Box>
         </Modal>
       </div>
+      <Toast duration={3000} />
     </div>
   );
 }

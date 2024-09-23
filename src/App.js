@@ -54,15 +54,7 @@ function App() {
                   element={item.element}
                 ></Route>
               ))
-            ) : user == "Staff" ? (
-              UserRoutes.staffRoutes.map((item) => (
-                <Route
-                  key={item.id}
-                  path={item.path}
-                  element={item.element}
-                ></Route>
-              ))
-            ) : (
+            ): (
               <Route />
             )}
           </Route>

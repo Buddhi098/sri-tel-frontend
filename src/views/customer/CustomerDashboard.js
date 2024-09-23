@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { Modal, Box, Typography, Button, Paper } from '@mui/material';
+import React, { useEffect, useState } from "react";
+import { Modal, Box, Typography, Button, Paper } from "@mui/material";
 
-import '../../css/customer/CustomerDashboard.css';
-import '../../css/customer/customerpackages.css';
-import StripeCard from '../../componets/StripeCard';
-import { useSelector } from 'react-redux';
+import "../../css/customer/CustomerDashboard.css";
+import "../../css/customer/customerpackages.css";
+import StripeCard from "../../componets/StripeCard";
+import { useSelector } from "react-redux";
+import axios from "axios";
+import { Axios_user } from "../../api/Axios";
+import * as API_ENDPOINTS from "../../api/ApiEndpoints";
 
 const currentBill = {
   issue_date: "2024-09-20",
@@ -14,27 +17,67 @@ const currentBill = {
     { name: "Data Plan", cost: "$200" },
     { name: "Voice Plan", cost: "$150" },
     { name: "SMS Plan", cost: "$50" },
-    { name: "Additional Charges", cost: "$100" }
+    { name: "Additional Charges", cost: "$100" },
   ],
-  payment_status: 0
+  payment_status: 0,
 };
 
 const pastPayments = [
   { issue_date: "2024-08-15", amount: "$250", payment_status: 1 },
-  { issue_date: "2024-07-05", amount: "$350", payment_status: 1 }
+  { issue_date: "2024-07-05", amount: "$350", payment_status: 1 },
 ];
 
 export default function CustomerDashboard() {
   const userid = useSelector((state) => state.UserReducer.userid);
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [checked, setChecked] = useState('All');
+  const [checked, setChecked] = useState("All");
   const [packages, setPackages] = useState([]);
   const [amount, setAmount] = useState(currentBill.amount);
   const [id, setId] = useState(currentBill.issue_date);
+  const [bills, setBills] = useState([]);
 
   useEffect(() => {
     setPackages(pastPayments);
   }, [userid]);
+
+  const [total, setTotal] = useState();
+  useEffect(() => {
+    const getBills = async () => {
+      const user_id = localStorage.getItem("user_id");
+      const res = await Axios_user.post(API_ENDPOINTS.GET_TOTAL_PAID, {
+        user_id,
+      });
+      console.log(res);
+      setBills(res.data.result);
+    };
+
+    getBills();
+  }, []);
+
+  useEffect(() => {
+    const getTotal = async () => {
+      const user_id = localStorage.getItem("user_id");
+      const res = await Axios_user.post(API_ENDPOINTS.GET_TOTAL_PAID, {
+        user_id,
+      });
+      console.log(res.data.totalPrice);
+      setTotal(res.data.totalPrice);
+    };
+    getTotal();
+  }, []);
+
+  const [history , setHistory] = useState([])
+  useEffect(() => {
+    const getTotal = async () => {
+      const user_id = localStorage.getItem("user_id");
+      const res = await Axios_user.post(API_ENDPOINTS.GET_PAYMENT_HISTORY, {
+        user_id,
+      });
+      
+      setHistory(res.data.history);
+    };
+    getTotal();
+  }, []);
 
   const openModal = (id, amount) => {
     setId(id);
@@ -43,12 +86,12 @@ export default function CustomerDashboard() {
   };
 
   const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: '500px',
-    bgcolor: 'background.paper',
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: "500px",
+    bgcolor: "background.paper",
     boxShadow: 24,
     p: 4,
   };
@@ -76,16 +119,16 @@ export default function CustomerDashboard() {
 
         {/* Bill breakdown */}
         <div className="billBreakdown">
-          {currentBill.services.map((service, index) => (
+          {bills.map((service, index) => (
             <div key={index} className="serviceItem">
-              <span>{service.name}</span>
-              <span>{service.cost}</span>
+              <span>{service.package_name}</span>
+              <span>{service.price}</span>
             </div>
           ))}
         </div>
 
         <Typography variant="h6" className="totalAmount">
-          Total Amount: {currentBill.amount}
+          Total Amount: {total}
         </Typography>
 
         {/* Pay button */}
@@ -102,24 +145,23 @@ export default function CustomerDashboard() {
 
       {/* Payment History Section */}
       <Typography variant="h5" className="sectionTitle">
-          Payment History
-        </Typography>
+        Payment History
+      </Typography>
       <div className="adminPackagesBottomRow">
-        
         <table className="admin-styled-table">
           <thead>
             <tr>
-              <th>Date</th>
-              <th>Amount</th>
+              <th>Id</th>
+              <th>Amount(LKR.)</th>
               <th>Status</th>
             </tr>
           </thead>
           <tbody>
-            {packages.map((item, index) => (
+            {history.map((item, index) => (
               <tr key={index}>
-                <td>{item.issue_date}</td>
+                <td>{index+1}</td>
                 <td>{item.amount}</td>
-                <td>{item.payment_status === 1 ? 'Paid' : 'Not Paid'}</td>
+                <td>Paid</td>
               </tr>
             ))}
           </tbody>
