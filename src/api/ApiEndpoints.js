@@ -7,6 +7,7 @@ export const GET_CUSTOMERS_URL = '/api/customers'
 export const ADD_CUSTOMER_URL = '/api/addcustomer'
 
 export const GET_ALL_PACKAGES = '/api/getallpackages';
+export const DELETE_PACKAGE = 'api/removeFromBill';
 export const PAYMENT = '/api/payment';
 // export const ACTIVATE_PACKAGE = '/api/activatepackage'
 export const GET_PACKAGE_URL ='/api/getallpackages';

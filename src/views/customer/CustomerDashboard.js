@@ -79,6 +79,28 @@ export default function CustomerDashboard() {
     getTotal();
   }, []);
 
+  const delete_package = async (event, package_id) => {
+    event.preventDefault();
+    try {
+      const user_id = localStorage.getItem("user_id");
+
+      const res = await Axios_user.post(API_ENDPOINTS.DELETE_PACKAGE, {user_id, package_id });
+
+      if (res.data.type === 'success') 
+      {
+        console.log(res);
+        // setTimeout(() => {window.location.href = 'http://localhost:3000/bill';}, 1000);
+        window.location.href = 'http://localhost:3000/bill';
+      } 
+      else 
+      {
+        console.error("Error deleting package", res.data);
+      }
+    } catch (error) {
+      console.error("Error occurred while deleting package:", error);
+    }
+  };
+
   const openModal = (id, amount) => {
     setId(id);
     setAmount(amount);
@@ -123,6 +145,7 @@ export default function CustomerDashboard() {
             <div key={index} className="serviceItem">
               <span>{service.package_name}</span>
               <span>{service.price}</span>
+              <span>{<Button onClick={(event)=> delete_package(event, service.package_id)}>remove</Button>}</span>
             </div>
           ))}
         </div>
@@ -157,7 +180,8 @@ export default function CustomerDashboard() {
             </tr>
           </thead>
           <tbody>
-            {history.map((item, index) => (
+            {
+              history.map((item, index) => (
               <tr key={index}>
                 <td>{index+1}</td>
                 <td>{item.amount}</td>
