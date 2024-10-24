@@ -93,6 +93,27 @@ export default function AdminPackages() {
     setType(value);
   };
 
+  async function delete_package(id) {
+    try 
+    {
+      const delete_res = await Axios_packages.delete(`${API_ENDPOINTS.ADMIN_DELETE_PACKAGE}/${id}`);
+      
+      if (delete_res.data.type === "success") 
+      {
+        alert("Package deleted successfully!");
+        window.location.reload();
+      }
+      else
+      {
+        alert("error deleting package");
+      }
+    } 
+    catch (error) 
+    {
+      console.error("Failed to delete the package:", error);
+      alert("An error occurred while deleting the package. Please try again.");
+    }
+  };
   return (
     <div
       className="adminPackages"
@@ -296,13 +317,14 @@ export default function AdminPackages() {
           </thead>
           <tbody>
             {details.map((d) => (
-              <tr key={d.package_id}>
+              <tr key={d.id}>
                 <td>{d.name}</td>
                 <td>{d.description}</td>
                 <td>{d.data_limit === null ? "-" : d.data_limit}</td>
                 <td>{d.voice_limit === null ? "-" : d.voice_limit}</td>
                 <td>{d.sms_limit === null ? "-" : d.sms_limit}</td>
                 <td>{d.price}</td>
+                <td>{<Button onClick={()=> delete_package(d.id)}>delete</Button>}</td>
               </tr>
             ))}
           </tbody>
